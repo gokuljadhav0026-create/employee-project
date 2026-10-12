@@ -84,11 +84,25 @@
 <body>
 
     <div class="form-container">
-        
+        <?php
+        session_start();
+       
 
+if (isset($_SESSION['success'])) {
+    echo "<h1>" . $_SESSION['success'] . "</h1>";
+    unset($_SESSION['success']);
+
+}elseif(isset($_SESSION['faield'])){
+       echo "<h1>" . $_SESSION['faield'] . "</h1>";
+            unset($_SESSION['faield']);
+}
+        
+        ?>
+        
+        <h2></h2>
         <h2>Form</h2>
 
-        <form action="insert.php" method="POST">
+        <form id="employeeForm"  action="insert.php" method="POST">
 
             <div class="form-group">
                 <label for="name">Name</label>
